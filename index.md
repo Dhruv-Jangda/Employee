@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+## Employee
 
-You can use the [editor on GitHub](https://github.com/Dhruv-Jangda/Employee/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Simple Django Web App to implement CRUD operations referenced from [Django CRUD](https://www.youtube.com/watch?v=N6jzspc2kds) while extending it to implement charting using [HighCharts](https://www.highcharts.com).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Setting Environment
 
-### Markdown
+1. Install and setup python with paths.
+2. Open terminal(command prompt) and run the following commands:
+    1. pip install django.
+    2. pip install django-crispy-forms.
+3. The database is set in SQLite, which is default for Django.
+4. Database options:
+    1. For learning and light setup - Download and install [SqLite DB Browser](https://sqlitebrowser.org/).
+    2. For professional setup:
+        1. Go for [PostGreSQL](https://www.postgresql.org/) or similar options.
+        2. Set corresponding database in the app settings.
+    3. Tables present:
+        1. *register_employee* - Entries inserted using the app.
+        2. *register_position* - Inserted with dummy entries to be referenced with *register_employee*.
+5. Open the DB Browser and open connection to *db.sqlite3* database in the project.
+  
+### Usage
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Dhruv-Jangda/Employee/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1. Open terminal and go to the project location.
+2. Run command: python manage.py runserver.
+3. Open browser and hit **localhost:8000/employee** to use the app.
