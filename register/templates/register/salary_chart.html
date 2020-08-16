@@ -1,0 +1,40 @@
+{% extends "register/main.html" %}
+
+{% block content %}
+<div id="container" class="border"></div></br>
+<div class="row" align="center">
+    <div class="col-md-12">
+        <a href="{% url 'employee_show' %}" class="btn btn-secondary btn-lg"><i class="fas fa-stream"></i>
+            Back to employees</a>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script>
+    _position = {{ position | safe }};
+    _salary = {{ salary | safe }};
+    Highcharts.chart("container", {
+        chart: { type: "line" },
+        title: { text: "Position wise Salary" },
+        yAxis: {
+            min: 0,
+            title: {
+                text: "Salary(INR)"
+            }
+        },
+        xAxis: {
+            title: { text: "Positions" },
+            categories: _position,
+            crosshair: true
+        },
+        series: [{
+            name: "Salary",
+            data: _salary
+        }]
+    });
+</script>
+{% endblock script %}

@@ -1,0 +1,49 @@
+{% extends "register/main.html" %}
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="bottom-border font-weight-bold">
+        <tr>
+            <td>Full Name</td>
+            <td>Employee Code</td>
+            <td>Mobile</td>
+            <td>Position</td>
+            <td>Salary</td>
+            <td>
+                <a href="{% url 'employee_insert' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Add New
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.emp_code }}</td>
+            <td>{{ employee.mobile }}</td>
+            <td>{{ employee.position }}</td>
+            <td>{{ employee.salary }}</td>
+            <td>
+                <a href="{% url 'employee_update' employee.id %}" class="btn text btn-secondary">
+                    <i class="far fa-edit fa-lg"></i>
+                </a>
+                <form action="{% url 'employee_delete' employee.id %}" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">
+                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="row" align="center">
+    <div class="col-md-12">
+        <a href="{% url 'employee_salary' %}" class="btn btn-outline-warning btn-lg">
+            <i class="fas fa-chart-line"></i> Analyse Salary
+        </a>
+    </div>
+</div>
+{% endblock content %}
